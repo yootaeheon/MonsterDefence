@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
+    [SerializeField] GameObject startObj;
     [SerializeField] Transform startPos;
+    [SerializeField] GameObject endObj;
     [SerializeField] Transform endPos;
 
     [SerializeField] List<Vector2Int> path;
@@ -19,6 +21,12 @@ public class PathFinder : MonoBehaviour
 
     private void Start()
     {
+        startObj = GameObject.FindWithTag("StartPos");
+        endObj = GameObject.FindWithTag("EndPos");
+
+        startPos = startObj.transform;
+        endPos = endObj.transform;
+
         Vector2Int start = new Vector2Int((int)startPos.position.x, (int)startPos.position.y);
         Vector2Int end = new Vector2Int((int)endPos.position.x, (int)endPos.position.y);
 
