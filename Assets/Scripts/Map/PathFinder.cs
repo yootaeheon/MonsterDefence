@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-
     [SerializeField] Transform startPos;
     [SerializeField] Transform endPos;
 
     [SerializeField] List<Vector2Int> path;
-    public List<Vector2Int> Path { get {return path; } }
 
+    private Monster monster;
+
+    private void Awake()
+    {
+        monster = GetComponent<Monster>();
+    }
 
     private void Start()
     {
@@ -23,11 +26,14 @@ public class PathFinder : MonoBehaviour
         if (success)
         {
             Debug.Log("경로 탐색 성공!");
+           
         }
         else
         {
             Debug.Log("경로 탐색 실패!");
         }
+
+        StartCoroutine(FollowPath());
     }
 
     private void Update()
@@ -41,7 +47,24 @@ public class PathFinder : MonoBehaviour
     }
 
 
-    
+    // 탐색한 최단 경로를 따라 이동하는 코루틴
+    public IEnumerator FollowPath()
+    {
+        if (path == null || path.Count == 0)
+            yield break;
+
+        foreach (Vector2Int point in path)
+        {
+            Vector3 targetPos = new Vector3(point.x, point.y, transform.position.z);
+
+            while (Vector3.Distance(transform.position, targetPos) > 0.1f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
+                yield return null;
+                Debug.Log(targetPos);
+            }
+        }
+    }
 
     static Vector2Int[] dirrection =
     {

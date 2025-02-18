@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+[System.Serializable]
 public class Monster : MonoBehaviour
 {
     #region 데이터-프로퍼티
@@ -23,32 +24,10 @@ public class Monster : MonoBehaviour
     #endregion
 
     private List<Vector2Int> path;
+    public List<Vector2Int> Path { get { return path; } set { path = value; } }
 
     private void Awake()
     {
         curHp = maxHp;
-    }
-
-    private void Start()
-    {   
-        path = GetComponent<PathFinder>().Path;
-    }
-
-    // 탐색한 최단 경로를 따라 이동하는 코루틴
-    public  IEnumerator FollowPath()
-    {
-        if (path == null || path.Count == 0)
-            yield break;
-
-        foreach (Vector2Int point in path)
-        {
-            Vector3 targetPos = new Vector3(point.x, point.y, transform.position.z);
-
-            while (Vector3.Distance(transform.position, targetPos) > 0.1f)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-                yield return null;
-            }
-        }
     }
 }
