@@ -13,11 +13,11 @@ public class Monster : MonoBehaviour
     [SerializeField] float moveSpeed;
     public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
 
-    [SerializeField] float maxHp;
-    public float MaxHp { get { return maxHp; } set { maxHp = value; } }
+    [SerializeField] int maxHp;
+    public int MaxHp { get { return maxHp; } set { maxHp = value; } }
 
-    [SerializeField] float curHp;
-    public float CurHp { get {return curHp; } set { curHp = value; } }
+    [SerializeField] int curHp;
+    public int CurHp { get {return curHp; } set { curHp = value; } }
 
     [SerializeField] float defense;
     public float Defense { get { return defense; } set { defense = value; } }
