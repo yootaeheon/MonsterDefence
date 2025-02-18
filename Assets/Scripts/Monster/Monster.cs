@@ -6,28 +6,25 @@ using UnityEngine;
 [System.Serializable]
 public class Monster : MonoBehaviour
 {
-    #region 데이터-프로퍼티
-    [SerializeField] new string name;
-    public string Name { get { return name; } set { Name = value; } }
+    #region Data - Property
+    [SerializeField] string _name;
+    public string Name { get { return _name; } set { Name = value; } }
 
-    [SerializeField] float moveSpeed;
-    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
+    [SerializeField] float _moveSpeed;
+    public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
 
-    [SerializeField] int maxHp;
-    public int MaxHp { get { return maxHp; } set { maxHp = value; } }
+    [SerializeField] int _maxHp;
+    public int MaxHp { get { return _maxHp; } set { _maxHp = value; } }
 
-    [SerializeField] int curHp;
-    public int CurHp { get {return curHp; } set { curHp = value; } }
+    [SerializeField] int _curHp;
+    public int CurHp { get {return _curHp; } set { _curHp = value; } }
 
-    [SerializeField] float defense;
-    public float Defense { get { return defense; } set { defense = value; } }
+    [SerializeField] int _defense;
+    public int Defense { get { return _defense; } set { _defense = value; } }
     #endregion
-
-    private List<Vector2Int> path;
-    public List<Vector2Int> Path { get { return path; } set { path = value; } }
 
     private void Awake()
     {
-        curHp = maxHp;
+        _curHp = _maxHp;
     }
 }

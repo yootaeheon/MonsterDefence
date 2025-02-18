@@ -5,33 +5,33 @@ using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
-    [SerializeField] List<Vector2Int> path;
+    [SerializeField] List<Vector2Int> _path;
 
-    private GameObject startObj;
-    private Transform startPos;
+    private GameObject _startObj;
+    private Transform _startPos;
 
-    private GameObject endObj;
-    private Transform endPos;
+    private GameObject _endObj;
+    private Transform _endPos;
 
-    [SerializeField] Monster monster;
+    [SerializeField] Monster _monster;
 
     private void Awake()
     {
-        monster = GetComponent<Monster>();
+        _monster = GetComponent<Monster>();
     }
 
     private void Start()
     {
-        startObj = GameObject.FindWithTag("StartPos");
-        endObj = GameObject.FindWithTag("EndPos");
+        _startObj = GameObject.FindWithTag("StartPos");
+        _endObj = GameObject.FindWithTag("EndPos");
 
-        startPos = startObj.transform;
-        endPos = endObj.transform;
+        _startPos = _startObj.transform;
+        _endPos = _endObj.transform;
 
-        Vector2Int start = new Vector2Int((int)startPos.position.x, (int)startPos.position.y);
-        Vector2Int end = new Vector2Int((int)endPos.position.x, (int)endPos.position.y);
+        Vector2Int start = new Vector2Int((int)_startPos.position.x, (int)_startPos.position.y);
+        Vector2Int end = new Vector2Int((int)_endPos.position.x, (int)_endPos.position.y);
 
-        bool success = AStar(start, end, out path);
+        bool success = AStar(start, end, out _path);
         if (success)
         {
             Debug.Log("경로 탐색 성공!");
@@ -47,10 +47,10 @@ public class PathFinder : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < path.Count - 1; i++)
+        for (int i = 0; i < _path.Count - 1; i++)
         {
-            Vector3 from = new Vector3(path[i].x, path[i].y, 0);
-            Vector3 to = new Vector3(path[i + 1].x, path[i + 1].y, 0);
+            Vector3 from = new Vector3(_path[i].x, _path[i].y, 0);
+            Vector3 to = new Vector3(_path[i + 1].x, _path[i + 1].y, 0);
             Debug.DrawLine(from, to);
         }
     }
@@ -59,18 +59,18 @@ public class PathFinder : MonoBehaviour
     // 탐색한 최단 경로를 따라 이동하는 코루틴
     public IEnumerator FollowPath()
     {
-        if (path == null || path.Count == 0)
+        if (_path == null || _path.Count == 0)
             yield break;
 
-        foreach (Vector2Int point in path)
+        foreach (Vector2Int point in _path)
         {
             Vector3 targetPos = new Vector3(point.x, point.y, transform.position.z);
 
             while (Vector3.Distance(transform.position, targetPos) > 0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, monster.MoveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, _monster.MoveSpeed * Time.deltaTime);
                 yield return null;
-                Debug.Log(targetPos);
+               /* Debug.Log(targetPos);*/
             }
         }
 
@@ -106,7 +106,7 @@ public class PathFinder : MonoBehaviour
             openList.Remove(nextNode);           // 다음으로 탐색할 정점을 후보들 중에서 제거
             closeSet.Add(nextNode.pos, true);    // 탐색을 완료한 정점들에 추가 
 
-            // 3. 다음으로 탐색할 정점이 도착지인 경우 (경로 탐색을 성공 => path 반환하면서 종료) >> 경로들을 모두 추가
+            // 3. 다음으로 탐색할 정점이 도착지인 경우 (경로 탐색을 성공 => _path 반환하면서 종료) >> 경로들을 모두 추가
             if (nextNode.pos == end)
             {
                 ASNode current = nextNode;

@@ -1,4 +1,6 @@
-public class MonsterController : Monster, IDamageable
+using UnityEngine;
+
+public class MonsterController : Monster, IDamagable
 {
     private void Update()
     {
@@ -10,7 +12,8 @@ public class MonsterController : Monster, IDamageable
 
     public void TakeDamage(int damage)
     {
-        CurHp -= damage;
+        CurHp -= damage - Defense; // 최종 데미지 = 데미지 - 방어력
+        Debug.Log($"{damage - Defense} 피해를 입었다!");
     }
 
     public void Die()

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject monster1;
+    [SerializeField] GameObject _monster1;
 
-    [SerializeField] Transform startPos;
+    [SerializeField] Transform _startPos;
 
-    private void Start()
+    private void Update()
     {
-        Instantiate(monster1, startPos.position, Quaternion.identity);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(_monster1, _startPos.position, Quaternion.identity);
+
+        }
     }
 }
