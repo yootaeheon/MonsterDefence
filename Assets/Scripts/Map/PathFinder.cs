@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
-    [SerializeField] GameObject startObj;
-    [SerializeField] Transform startPos;
-    [SerializeField] GameObject endObj;
-    [SerializeField] Transform endPos;
-
     [SerializeField] List<Vector2Int> path;
 
-    private Monster monster;
+    private GameObject startObj;
+    private Transform startPos;
+
+    private GameObject endObj;
+    private Transform endPos;
+
+    [SerializeField] Monster monster;
 
     private void Awake()
     {
@@ -67,11 +68,14 @@ public class PathFinder : MonoBehaviour
 
             while (Vector3.Distance(transform.position, targetPos) > 0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, monster.MoveSpeed * Time.deltaTime);
                 yield return null;
                 Debug.Log(targetPos);
             }
         }
+
+        // 추후 리턴풀/파괴로 수정
+        Destroy(gameObject); 
     }
 
     static Vector2Int[] dirrection =
@@ -222,8 +226,6 @@ public class PathFinder : MonoBehaviour
         return null;
     }
 }
-
-
 
 public class ASNode
 {
