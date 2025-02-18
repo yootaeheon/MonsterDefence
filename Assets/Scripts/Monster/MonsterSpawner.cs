@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject monster1;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] Transform startPos;
+
+    private void Start()
     {
-        
+        Instantiate(monster1, startPos.position, Quaternion.identity);
     }
 }
