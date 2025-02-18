@@ -6,6 +6,8 @@ TagManager:
   tags:
   - StartPos
   - EndPos
+  - Monster
+  - Character
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Monster
   - 
   - 
   - 
