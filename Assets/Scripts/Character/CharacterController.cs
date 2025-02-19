@@ -9,11 +9,19 @@ public class CharacterController : MonoBehaviour
 {
     public CharacterModel Model;
 
+    [HideInInspector] public int MonsterLayer = 1 << 6;
+    
     private StateMachine _state;
+
 
     private void Awake()
     {
         Init();
+    }
+
+    private void Start()
+    {
+        Model.CurHp = Model.MaxHp;
     }
 
     private void Update()
