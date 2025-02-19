@@ -10,7 +10,6 @@ public class PathFinder : MonoBehaviour
 
     private GameObject _startObj;
     private Transform _startPos;
-
     private GameObject _endObj;
     private Transform _endPos;
 
@@ -49,29 +48,6 @@ public class PathFinder : MonoBehaviour
         }
     }
 
-
-    // 탐색한 최단 경로를 따라 이동하는 코루틴
-   /* public IEnumerator FollowPath()
-    {
-        if (_path == null || _path.Count == 0)
-            yield break;
-
-        foreach (Vector2Int point in _path)
-        {
-            Vector3 targetPos = new Vector3(point.x, point.y, transform.position.z);
-
-            while (Vector3.Distance(transform.position, targetPos) > 0.1f)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, _monster.MoveSpeed * Time.deltaTime);
-                yield return null;
-               *//* Debug.Log(targetPos);*//*
-            }
-        }
-
-        // 추후 리턴풀/파괴로 수정
-        Destroy(gameObject); 
-    }*/
-
     static Vector2Int[] dirrection =
     {
         new Vector2Int(0, +1), // 상
@@ -79,8 +55,6 @@ public class PathFinder : MonoBehaviour
         new Vector2Int(-1, 0), // 좌
         new Vector2Int(+1, 0) // 우
     };
-
-
     public static bool AStar(Vector2Int start, Vector2Int end, out List<Vector2Int> path)
     {
         // 0. 사전 세팅
