@@ -27,6 +27,11 @@ public class CharacterController : MonoBehaviour
     private void Update()
     {
         _state.OnUpdate();
+
+        if (Model.CurMana >= Model.MaxMana)
+        {
+            Model.CurMana = Model.MaxMana;
+        }
     }
 
     // 상태들을 초기화

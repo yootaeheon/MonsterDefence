@@ -14,7 +14,7 @@ public class StateAttack : CharacterState
 
     public override void Enter()
     {
-        /*Controller.StartCoroutine(AttackRoutine());*/
+
     }
 
     public override void OnUpdate()
@@ -51,7 +51,9 @@ public class StateAttack : CharacterState
         Debug.Log("attack 돌입");
         IDamagable damagable;
         damagable = cols.GetComponent<IDamagable>();
+        // Play("애니메이션")
         damagable.TakeDamage(Controller.Model.Damage);
+        Controller.Model.CurMana += 1;
         Debug.Log("공격 성공");
     }
 

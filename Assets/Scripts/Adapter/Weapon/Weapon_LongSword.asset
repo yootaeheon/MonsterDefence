@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_LongSword
   m_EditorClassIdentifier: 
   WeaponName: LongSword
-  Damage: 2
+  Damage: 5
   AttackRange: {x: 4, y: 4}
   AttackDelay: 2
   AnimName: Slash
