@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 캐릭터 모델 (데이터 담당)
+/// </summary>
 [System.Serializable]
 public class CharacterModel
 {

@@ -12,7 +12,7 @@ public class StateAttack : CharacterState
 
     public override void Init()
     {
-        ThisType = StateType.Attack;
+        stateType = StateType.Attack;
     }
 
     public override void Enter()

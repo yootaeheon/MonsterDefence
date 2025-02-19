@@ -8,7 +8,7 @@ public class StateIdle : CharacterState
 
     public override void Init()
     {
-        ThisType = StateType.Idle;
+        stateType = StateType.Idle;
     }
 
     public override void OnUpdate()
