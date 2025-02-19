@@ -5,10 +5,7 @@ public class StateAttack : CharacterState
 {
     [SerializeField] int _layer = 1<<6;
 
-    public StateAttack(CharacterController controller) : base(controller)
-    {
-
-    }
+    public StateAttack(CharacterController controller) : base(controller) { }
 
     public override void Init()
     {
