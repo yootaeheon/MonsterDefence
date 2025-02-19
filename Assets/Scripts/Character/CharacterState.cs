@@ -11,6 +11,8 @@ public abstract class CharacterState
     public CharacterController Controller { get; private set; }         // 캐릭터 컨트롤러 참조
     public StateMachine Machine { get; set; }                           // 상태 전환 해주는 상태머신 참조
     public StateType stateType { get; protected set; }                  // 상태 열거형
+
+    public CharacterModel Model;
                                                                         
     public CharacterState(CharacterController controller)               // 상태 전환 후 초기화 과정 
     {                                                                   

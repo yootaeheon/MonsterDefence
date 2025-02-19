@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StateAttack : CharacterState
 {
-    [SerializeField] int _layer = 1<<6;
+    private Collider2D cols;
 
     public StateAttack(CharacterController controller) : base(controller) { }
 
@@ -14,12 +14,30 @@ public class StateAttack : CharacterState
 
     public override void Enter()
     {
-        Controller.StartCoroutine(AttackRoutine());
+        /*Controller.StartCoroutine(AttackRoutine());*/
     }
 
     public override void OnUpdate()
     {
         Debug.Log("Attack On Update");
+        if (cols == null)
+        {
+            cols = Physics2D.OverlapBox(Controller.transform.position, Controller.Model.AttackRange, 0, Controller.MonsterLayer);
+        }
+        else
+        {
+            if (Vector3.Distance(Controller.transform.position, cols.transform.position) > 6f)
+            {
+                cols = null;
+                Exit();
+                return;
+            }
+
+            if (attackRoutine == null)
+            {
+                attackRoutine = Controller.StartCoroutine(AttackRoutine());
+            }
+        }
     }
 
     public override void Exit()
@@ -31,30 +49,22 @@ public class StateAttack : CharacterState
     private void Attack()
     {
         Debug.Log("attack 돌입");
-        Collider2D cols = Physics2D.OverlapBox(
-            Controller.transform.position,
-            Controller.Model.AttackRange,
-            0,
-            _layer
-            );
-
-        if ( cols == null )
-            return;
-
         IDamagable damagable;
-        if (cols.CompareTag("Monster"))
-        {
-            damagable = cols.GetComponent<IDamagable>();
-            damagable.TakeDamage(Controller.Model.Damage);
-            Debug.Log("공격 성공");
-        }
+        damagable = cols.GetComponent<IDamagable>();
+        damagable.TakeDamage(Controller.Model.Damage);
+        Debug.Log("공격 성공");
     }
 
+
+    Coroutine attackRoutine;
     public IEnumerator AttackRoutine()
     {
-        Attack();
-        yield return null;
-        Exit();
+        while (cols != null)
+        {
+            Attack();
+            yield return new WaitForSeconds(2f);
+        }
+        attackRoutine = null;
     }
 
 }
