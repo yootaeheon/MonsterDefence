@@ -122,6 +122,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &52803673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6027598970946413611, guid: 8d928eb7260864140906ae011501ee28, type: 3}
+  m_PrefabInstance: {fileID: 874183256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &52803677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52803673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad641d45fd7a5248becb60a20ba61f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _status: {fileID: 11400000, guid: 40c43e42ac3a93d4aacca0fa64e4099f, type: 2}
+  _weapon: {fileID: 11400000, guid: d59dac9dc623396419ffce0c67e8268c, type: 2}
+  _skill: {fileID: 11400000, guid: 39e0c8430a3856e42a74aaa9ea88ee95, type: 2}
 --- !u!1 &519018405
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,11 +354,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6027598970946413608, guid: 8d928eb7260864140906ae011501ee28, type: 3}
       propertyPath: Model._damage
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6027598970946413608, guid: 8d928eb7260864140906ae011501ee28, type: 3}
       propertyPath: Model._attackDelay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6027598970946413608, guid: 8d928eb7260864140906ae011501ee28, type: 3}
       propertyPath: Model._attackRange
@@ -350,11 +370,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6027598970946413608, guid: 8d928eb7260864140906ae011501ee28, type: 3}
       propertyPath: Model._attackRange.x
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6027598970946413608, guid: 8d928eb7260864140906ae011501ee28, type: 3}
       propertyPath: Model._attackRange.y
-      value: 4
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027598970946413608, guid: 8d928eb7260864140906ae011501ee28, type: 3}
+      propertyPath: Model._characterName
+      value: Warrior
       objectReference: {fileID: 0}
     - target: {fileID: 6027598970946413609, guid: 8d928eb7260864140906ae011501ee28, type: 3}
       propertyPath: m_RootOrder
