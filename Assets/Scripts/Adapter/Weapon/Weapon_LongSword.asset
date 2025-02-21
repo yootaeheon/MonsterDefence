@@ -17,3 +17,7 @@ MonoBehaviour:
   AttackRange: {x: 4, y: 4}
   AttackDelay: 2
   AnimName: Slash
+  IdleClip: {fileID: 7400000, guid: 226693a658e232749902ced3b9707007, type: 2}
+  AttackClip: {fileID: 7400000, guid: 2d258ea25f9fd5045bd99b3dca7b3dd6, type: 2}
+  SkillClip: {fileID: 0}
+  overrideController: {fileID: 22100000, guid: 8796e5fcfffd3fb4ea739c3eebcc1ed2, type: 2}

@@ -17,3 +17,4 @@ MonoBehaviour:
   CoolTime: 5
   CanUse: 0
   Cost: 10
+  SkillClip: {fileID: 7400000, guid: 549da90ffbd97444db0da51cfb3ca24b, type: 2}

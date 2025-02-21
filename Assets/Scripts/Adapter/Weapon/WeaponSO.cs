@@ -15,5 +15,9 @@ public class WeaponSO : ScriptableObject
 
     public string AnimName; // HashToString으로 해싱할것 // 애니메이션/터 override 공부해보기
 
-    public Sprite IdleSR;
+    public AnimationClip IdleClip;
+    public AnimationClip AttackClip;
+
+    
+
 }

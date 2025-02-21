@@ -12,4 +12,7 @@ public class SkillSO : ScriptableObject
     public bool CanUse;
 
     public int Cost;
+
+    public AnimationClip SkillClip;
+
 }

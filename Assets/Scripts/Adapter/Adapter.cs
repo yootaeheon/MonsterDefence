@@ -15,10 +15,20 @@ public class Adapter : MonoBehaviour
     private CharacterController _controller;
     private CharacterModel _model => _controller.Model;
 
+    public AnimatorOverrideController OverrideController;
+
+
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
+
+        OverrideController = new AnimatorOverrideController(_controller.Animator.runtimeAnimatorController);
+        _controller.Animator.runtimeAnimatorController = OverrideController;
+
+        OverrideController["Idle"] = Weapon.IdleClip;
+        OverrideController["Attack"] = Weapon.AttackClip;
+        OverrideController["Skill"] = Skill.SkillClip;
     }
 
     private void Start()
@@ -35,7 +45,8 @@ public class Adapter : MonoBehaviour
         _model.AttackDelay = Weapon.AttackDelay;
         _model.WeaponAnimName = Weapon.AnimName;
 
-        _model.Sprite = Weapon.IdleSR;
+        OverrideController["Idle"] = Weapon.IdleClip;   
+        OverrideController["Attack"] = Weapon.AttackClip; 
 
         // Skill √ ±‚»≠
         _model.SkillName = Skill.SkillName;

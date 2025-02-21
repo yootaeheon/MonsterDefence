@@ -7,6 +7,8 @@ public class MonsterController : Monster, IDamagable
 
     private Animator _animator;
 
+    private AnimatorOverrideController _controller;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
