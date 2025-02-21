@@ -51,6 +51,9 @@ public class CharacterModel
     [SerializeField] string _skillName;
     public string SkillName { get { return _skillName; } set { _skillName = value; } }
 
+    [SerializeField] int _skillDamage;
+    public int SkillDamage { get { return _skillDamage; } set { _skillDamage = value; } }
+
     [SerializeField] string _coolTime;
     public string CoolTime { get { return _coolTime; } set { _coolTime = value; } }
 

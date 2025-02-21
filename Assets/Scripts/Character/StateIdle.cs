@@ -5,6 +5,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class StateIdle : CharacterState
 {
+    private bool _canAttack;
     public StateIdle(CharacterController controller) : base(controller) { }
 
     public override void Init()
@@ -16,13 +17,8 @@ public class StateIdle : CharacterState
     {
         Debug.Log("Idle On Update");
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Machine.ChangeState(StateType.Attack);
-        }
-
-        bool CanAttack = Physics2D.OverlapBox(Controller.transform.position, Controller.Model.AttackRange, 0, Controller.MonsterLayer);
-        if (CanAttack)
+        _canAttack = Physics2D.OverlapBox(Controller.transform.position, Controller.Model.AttackRange, 0, Controller.MonsterLayer);
+        if (_canAttack)
         {
             Machine.ChangeState(StateType.Attack);
         }

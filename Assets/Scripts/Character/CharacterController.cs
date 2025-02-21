@@ -5,9 +5,11 @@ using UnityEngine;
 /// <summary>
 /// 캐릭터의 컨트롤러 역할 (로직 담당)
 /// </summary>
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour 
 {
     public CharacterModel Model;
+
+    public Adapter Adapter { get; set; }
 
     [HideInInspector] public int MonsterLayer = 1 << 6;
     
@@ -37,7 +39,7 @@ public class CharacterController : MonoBehaviour
     // 상태들을 초기화
     private void Init()
     {
-        _state = new StateMachine(new StateIdle(this), new StateAttack(this));
+        _state = new StateMachine(new StateIdle(this), new StateAttack(this), new StateSkill(this));
     }
 
     // 공격 범위 기즈모 출력

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class StateAttack : CharacterState
 {
+    private IDamagable Damagable;
+
     private Collider2D cols;
 
     public StateAttack(CharacterController controller) : base(controller) { }
@@ -19,6 +21,11 @@ public class StateAttack : CharacterState
 
     public override void OnUpdate()
     {
+        if (Controller.Model.CurMana >= 10)
+        {
+            Machine.ChangeState(StateType.Skill);
+        }
+
         Debug.Log("Attack On Update");
         if (cols == null)
         {
@@ -49,10 +56,9 @@ public class StateAttack : CharacterState
     private void Attack()
     {
         Debug.Log("attack 돌입");
-        IDamagable damagable;
-        damagable = cols.GetComponent<IDamagable>();
+        Damagable = cols.GetComponent<IDamagable>();
         // Play("애니메이션")
-        damagable.TakeDamage(Controller.Model.Damage);
+        Damagable.TakeDamage(Controller.Model.Damage);
         Controller.Model.CurMana += 1;
         Debug.Log("공격 성공");
     }

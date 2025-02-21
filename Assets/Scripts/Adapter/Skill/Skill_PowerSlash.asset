@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Skill_PowerSlash
   m_EditorClassIdentifier: 
   SkillName: PowerSlash
+  SkillDamage: 10
   CoolTime: 5
   CanUse: 0
   Cost: 10
