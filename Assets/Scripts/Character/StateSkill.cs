@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class StateSkill : CharacterState, IAtivateSkill
 {
@@ -16,12 +15,13 @@ public class StateSkill : CharacterState, IAtivateSkill
 
     public override void Enter()
     {
+        Controller.Model.CurMana = 0;
         Controller.StartCoroutine(SkillRoutine());
     }
 
     public override void OnUpdate()
     {
-       
+
     }
 
     public override void Exit()
@@ -30,18 +30,21 @@ public class StateSkill : CharacterState, IAtivateSkill
         Debug.Log("Skill -> Attack");
     }
 
-    private void ActivateSkill()
+    public void ActivateSkill()
     {
         Debug.Log("Skill 사용");
         // Play("adapter.SkillAnim")
 
-        cols = Physics2D.OverlapBox(Controller.transform.position, Controller.Model.AttackRange, 0, Controller.MonsterLayer);
+        switch (Controller.Model.SkillType)
+        {
+            case CharacterModel.Type_Skill.PowerUp:
+                PowerUp();
+                break;
 
-        IDamagable damagable;
-        damagable = cols.GetComponent<IDamagable>();
-        damagable.TakeDamage(Controller.Model.SkillDamage);
-        Controller.Model.CurMana -= Controller.Model.Cost;
-        Debug.Log("Skill 사용 완료");
+            case CharacterModel.Type_Skill.SpeedUp:
+                Controller.StartCoroutine(SpeedUp());
+                break;
+        }
     }
 
     WaitForSeconds delay = new(1f);
@@ -51,5 +54,26 @@ public class StateSkill : CharacterState, IAtivateSkill
         ActivateSkill();
         yield return null;
         Exit();
+    }
+
+    public void PowerUp()
+    {
+        cols = Physics2D.OverlapBox(Controller.transform.position, Controller.Model.AttackRange, 0, Controller.MonsterLayer);
+
+        IDamagable damagable;
+        damagable = cols.GetComponent<IDamagable>();
+        damagable.TakeDamage(Controller.Model.SkillDamage);
+        Controller.Model.CurMana -= Controller.Model.Cost;
+        Debug.Log("스킬 사용 완료");
+    }
+
+    WaitForSeconds duration = new(4f);
+    IEnumerator SpeedUp()
+    {
+        int AttackDelay = Controller.Model.AttackDelay;
+
+        Controller.Model.AttackDelay = Controller.Model.AttackDelay - 1;
+        yield return duration;
+        Controller.Model.AttackDelay = AttackDelay;
     }
 }

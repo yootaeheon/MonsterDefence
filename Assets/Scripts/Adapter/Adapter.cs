@@ -15,6 +15,7 @@ public class Adapter : MonoBehaviour
     private CharacterController _controller;
     private CharacterModel _model => _controller.Model;
 
+
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -33,6 +34,8 @@ public class Adapter : MonoBehaviour
         _model.AttackRange = Weapon.AttackRange;
         _model.AttackDelay = Weapon.AttackDelay;
         _model.WeaponAnimName = Weapon.AnimName;
+
+        _model.Sprite = Weapon.IdleSR;
 
         // Skill √ ±‚»≠
         _model.SkillName = Skill.SkillName;
