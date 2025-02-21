@@ -47,7 +47,7 @@ public class CharacterModel
 
     [Header("Skill")]
     [SerializeField] Type_Skill _skillType;
-    public Type_Skill SkillType { get { return _skillType; } }
+    public Type_Skill SkillType { get { return _skillType; }  set { _skillType = value; } }
 
     [SerializeField] string _skillName;
     public string SkillName { get { return _skillName; } set { _skillName = value; } }

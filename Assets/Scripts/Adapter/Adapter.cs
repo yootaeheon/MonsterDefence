@@ -55,8 +55,7 @@ public class Adapter : MonoBehaviour
         _model.CoolTime = Skill.CoolTime;
         _model.CanUse = Skill.CanUse;
         _model.Cost = Skill.Cost;
-
-       
+        _model.SkillType = (CharacterModel.Type_Skill)Skill.SkillType;
     }
 }
 

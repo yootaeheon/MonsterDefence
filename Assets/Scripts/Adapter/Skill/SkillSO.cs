@@ -4,6 +4,7 @@ using UnityEngine;
 public class SkillSO : ScriptableObject
 {
     public enum Type_Skill { PowerUp, SpeedUp }
+    public Type_Skill SkillType;
 
     public string SkillName;
 

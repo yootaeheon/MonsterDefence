@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7208470941848418283}
   - component: {fileID: 6477765843142081198}
   - component: {fileID: 3806996331316872577}
-  - component: {fileID: 7436048300993516264}
   - component: {fileID: 4348299644955192687}
   m_Layer: 6
   m_Name: Monster1
@@ -157,18 +156,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7436048300993516264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4348299644955192672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da0d2e4f12938247862b9e6b3d6931c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4348299644955192687
 MonoBehaviour:
   m_ObjectHideFlags: 0
