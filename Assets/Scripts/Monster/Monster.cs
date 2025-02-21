@@ -49,5 +49,6 @@ public class Monster : MonoBehaviour
 
         // 추후 리턴풀/파괴로 수정
         Destroy(gameObject);
+        GameManager.Instance.CurLife--;
     }
 }
