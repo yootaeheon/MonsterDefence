@@ -11,6 +11,8 @@ public class CharacterController : MonoBehaviour
 
     public Adapter Adapter { get; set; }
 
+    public Animator Animator {  get; set; }    
+
     [HideInInspector] public int MonsterLayer = 1 << 6;
     
     private StateMachine _state;
@@ -22,6 +24,7 @@ public class CharacterController : MonoBehaviour
         Init();
 
         _sprite = GetComponent<Sprite>();
+        Animator = GetComponent<Animator>();
     }
 
     private void Start()

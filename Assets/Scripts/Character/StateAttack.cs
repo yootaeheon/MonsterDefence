@@ -57,7 +57,7 @@ public class StateAttack : CharacterState
     {
         Debug.Log("attack 돌입");
         Damagable = cols.GetComponent<IDamagable>();
-        // Play("애니메이션")
+        Controller.Animator.Play(AnimDefine.CharAttack);
         Damagable.TakeDamage(Controller.Model.Damage);
         Controller.Model.CurMana += 1;
         Debug.Log("공격 성공");

@@ -52,6 +52,7 @@ public class StateSkill : CharacterState, IAtivateSkill
     {
         yield return delay;
         ActivateSkill();
+        Controller.Animator.Play(AnimDefine.CharSkill);
         yield return null;
         Exit();
     }
