@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25757bf3050534246a3149f370bb2eed, type: 3}
-  m_Name: Status_Strong
+  m_Name: Status_Str
   m_EditorClassIdentifier: 
+  CharacterName: Str
   MaxHp: 100
   Defense: 10
   MaxMana: 10

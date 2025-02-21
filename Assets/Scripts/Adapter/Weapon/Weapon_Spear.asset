@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7a5e552ffa98046b2470ea66759187, type: 3}
-  m_Name: Weapon_LongSword
+  m_Name: Weapon_Spear
   m_EditorClassIdentifier: 
-  WeaponName: LongSword
+  WeaponName: Spear
   Damage: 5
-  AttackRange: {x: 4, y: 4}
-  AttackDelay: 2
-  IdleClip: {fileID: 7400000, guid: 95ec41b79af64944487e29f01a5ebda5, type: 2}
-  AttackClip: {fileID: 7400000, guid: 892ea6fa187696e4a997d87e52b2a74d, type: 2}
-  SkillClip: {fileID: 7400000, guid: 1d897a50562e43b4aad56cc238d35cea, type: 2}
+  AttackRange: {x: 5, y: 5}
+  AttackDelay: 3
+  IdleClip: {fileID: 7400000, guid: 606dff594d9ce944aa8a402bf3225acd, type: 2}
+  AttackClip: {fileID: 7400000, guid: ca8a73bb6799f0e43bf31e91d46192a1, type: 2}
+  SkillClip: {fileID: 0}

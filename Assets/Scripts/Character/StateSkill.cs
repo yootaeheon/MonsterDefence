@@ -15,19 +15,31 @@ public class StateSkill : CharacterState, IAtivateSkill
 
     public override void Enter()
     {
-        Controller.Model.CurMana = 0;
         Controller.StartCoroutine(SkillRoutine());
     }
 
     public override void OnUpdate()
     {
-
+        if (cols == null)
+        {
+            Exit();
+        }
     }
 
     public override void Exit()
     {
         Machine.ChangeState(StateType.Attack);
         Debug.Log("Skill -> Attack");
+    }
+
+    WaitForSeconds delay = new(2f);
+    private int delay2 => Controller.Model.AttackDelay;
+    IEnumerator SkillRoutine()
+    {
+        yield return delay;
+        ActivateSkill();
+        yield return delay;
+        Exit();
     }
 
     public void ActivateSkill()
@@ -47,20 +59,14 @@ public class StateSkill : CharacterState, IAtivateSkill
         }
     }
 
-    WaitForSeconds delay = new(1f);
-    IEnumerator SkillRoutine()
-    {
-        yield return delay;
-        ActivateSkill();
-        Controller.Animator.Play(AnimDefine.CharSkill);
-        yield return null;
-        Exit();
-    }
-
     public void PowerUp()
     {
         cols = Physics2D.OverlapBox(Controller.transform.position, Controller.Model.AttackRange, 0, Controller.MonsterLayer);
 
+        if (cols == null)
+            return;
+
+        Controller.Animator.Play(AnimDefine.CharSkill);
         IDamagable damagable;
         damagable = cols.GetComponent<IDamagable>();
         damagable.TakeDamage(Controller.Model.SkillDamage);

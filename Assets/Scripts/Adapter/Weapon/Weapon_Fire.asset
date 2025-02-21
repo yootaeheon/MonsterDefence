@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7a5e552ffa98046b2470ea66759187, type: 3}
-  m_Name: Weapon_LongSword
+  m_Name: Weapon_Fire
   m_EditorClassIdentifier: 
-  WeaponName: LongSword
+  WeaponName: Fire
   Damage: 5
   AttackRange: {x: 4, y: 4}
   AttackDelay: 2
-  IdleClip: {fileID: 7400000, guid: 95ec41b79af64944487e29f01a5ebda5, type: 2}
-  AttackClip: {fileID: 7400000, guid: 892ea6fa187696e4a997d87e52b2a74d, type: 2}
-  SkillClip: {fileID: 7400000, guid: 1d897a50562e43b4aad56cc238d35cea, type: 2}
+  IdleClip: {fileID: 7400000, guid: f3e1dfe4ffaaf95438c3f83fe9e32057, type: 2}
+  AttackClip: {fileID: 7400000, guid: 920adb62566186045a79987b36636f69, type: 2}
+  SkillClip: {fileID: 0}

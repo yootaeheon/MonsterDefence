@@ -13,11 +13,9 @@ public class WeaponSO : ScriptableObject
 
     public int AttackDelay;
 
-    public string AnimName; // HashToString으로 해싱할것 // 애니메이션/터 override 공부해보기
-
     public AnimationClip IdleClip;
+
     public AnimationClip AttackClip;
 
-    
-
+    public AnimationClip SkillClip;
 }

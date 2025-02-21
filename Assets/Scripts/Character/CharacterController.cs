@@ -16,21 +16,18 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public int MonsterLayer = 1 << 6;
     
     private StateMachine _state;
-    private Sprite _sprite;
 
 
     private void Awake()
     {
         Init();
 
-        _sprite = GetComponent<Sprite>();
         Animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
         Model.CurHp = Model.MaxHp;
-        _sprite = Model.Sprite;
     }
 
     private void Update()

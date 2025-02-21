@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7a5e552ffa98046b2470ea66759187, type: 3}
-  m_Name: Weapon_LongSword
+  m_Name: Weapon_SamuraiSword
   m_EditorClassIdentifier: 
-  WeaponName: LongSword
-  Damage: 5
+  WeaponName: SamuraiSword
+  Damage: 7
   AttackRange: {x: 4, y: 4}
   AttackDelay: 2
-  IdleClip: {fileID: 7400000, guid: 95ec41b79af64944487e29f01a5ebda5, type: 2}
-  AttackClip: {fileID: 7400000, guid: 892ea6fa187696e4a997d87e52b2a74d, type: 2}
-  SkillClip: {fileID: 7400000, guid: 1d897a50562e43b4aad56cc238d35cea, type: 2}
+  IdleClip: {fileID: 7400000, guid: 226693a658e232749902ced3b9707007, type: 2}
+  AttackClip: {fileID: 7400000, guid: 2d258ea25f9fd5045bd99b3dca7b3dd6, type: 2}
+  SkillClip: {fileID: 7400000, guid: 549da90ffbd97444db0da51cfb3ca24b, type: 2}

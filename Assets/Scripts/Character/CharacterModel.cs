@@ -42,13 +42,6 @@ public class CharacterModel
     [SerializeField] int _damage;
     public int Damage { get { return _damage; } set { _damage = value; } }
 
-    [SerializeField] string _weaponAnimName;
-    public string WeaponAnimName { get { return _weaponAnimName; } set { _weaponAnimName = value; } }
-
-    [SerializeField] Sprite _sprite;
-    public Sprite Sprite { get { return _sprite; } set { _sprite = value; } }
-
-
 
     public enum Type_Skill { PowerUp, SpeedUp }
 

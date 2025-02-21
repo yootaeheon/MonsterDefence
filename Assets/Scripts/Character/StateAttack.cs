@@ -21,7 +21,7 @@ public class StateAttack : CharacterState
 
     public override void OnUpdate()
     {
-        if (Controller.Model.CurMana >= 10)
+        if (Controller.Model.CurMana >= Controller.Model.MaxMana)
         {
             Machine.ChangeState(StateType.Skill);
         }
