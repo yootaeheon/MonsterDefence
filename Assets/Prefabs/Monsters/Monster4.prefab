@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8627066430088908710}
   - component: {fileID: 8627066430088908709}
-  - component: {fileID: 8627066430088908708}
-  - component: {fileID: 3229954773062709283}
+  - component: {fileID: 3452183291531023648}
   - component: {fileID: 1298331910183000165}
   - component: {fileID: 9165976116119005002}
-  - component: {fileID: 3452183291531023648}
+  - component: {fileID: 3229954773062709283}
+  - component: {fileID: 8627066430088908708}
   m_Layer: 6
   m_Name: Monster4
   m_TagString: Monster
@@ -89,35 +89,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &8627066430088908708
-MonoBehaviour:
+--- !u!95 &3452183291531023648
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8627066430088908715}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba223b26ff6d864fbd2bcd5d030df47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: Monster1
-  _moveSpeed: 1.5
-  _maxHp: 10
-  _curHp: 0
-  _defense: 1
---- !u!114 &3229954773062709283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8627066430088908715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da0d2e4f12938247862b9e6b3d6931c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 9a82b3239021b504094e5dc4553eddcc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &1298331910183000165
 Rigidbody2D:
   serializedVersion: 4
@@ -165,24 +157,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &3452183291531023648
-Animator:
-  serializedVersion: 5
+--- !u!114 &3229954773062709283
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8627066430088908715}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 9a82b3239021b504094e5dc4553eddcc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da0d2e4f12938247862b9e6b3d6931c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8627066430088908708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627066430088908715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba223b26ff6d864fbd2bcd5d030df47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Monster1
+  _moveSpeed: 1.5
+  _maxHp: 10
+  _curHp: 0
+  _defense: 1
