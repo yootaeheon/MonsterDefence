@@ -1,0 +1,11 @@
+Pos,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+1,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall
+2,Wall,Wall,Wall,Wall,,,,,,,,,,,,,Wall
+3,Wall,Wall,Wall,Wall,,,,,,,,,,,,,Wall
+4,Wall,,,,,,,Wall,Wall,,,Wall,Wall,,,,Wall
+5,Wall,Start,,,,,,Wall,Wall,,,Wall,Wall,,,End,Wall
+6,Wall,,,,,,,Wall,Wall,,,Wall,Wall,,,,Wall
+7,Wall,,,,,,,,,,,,,,,,Wall
+8,Wall,Wall,Wall,Wall,,,,,,,,,,,,,Wall
+9,Wall,Wall,Wall,Wall,,,,,,,,,,,,,Wall
+10,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall,Wall
