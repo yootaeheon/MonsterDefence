@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     #region Property
-    [SerializeField] int _maxLife;
+    public string FilePath { get; set; }
+
+    [SerializeField] int _maxLife = 20;
     public int MaxLife { get { return _maxLife; } }
 
     [SerializeField] int _curLife;
@@ -40,6 +42,23 @@ public class GameManager : MonoBehaviour
         if (CurLife <= 0)
         {
             Debug.Log("Game Over");
+        }
+    }
+
+    public bool CheckEligibility(int ChallengeStage)
+    {
+        if (DatabaseManager.Instance.CurStage < ChallengeStage - 1)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public void ClearStage(int ChallengeStage)
+    {
+        if (DatabaseManager.Instance.CurStage < ChallengeStage)
+        {
+            DatabaseManager.Instance.CurStage = ChallengeStage;
         }
     }
 }
