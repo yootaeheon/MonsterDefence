@@ -21,7 +21,7 @@ public class PathFinder : MonoBehaviour
         _startPos = _startObj.transform;
         _endPos = _endObj.transform;
 
-        Vector2Int start = new Vector2Int((int)_startPos.position.x, (int)_startPos.position.y);
+        /*Vector2Int start = new Vector2Int((int)_startPos.position.x, (int)_startPos.position.y);
         Vector2Int end = new Vector2Int((int)_endPos.position.x, (int)_endPos.position.y);
 
         bool success = AStar(start, end, out _path);
@@ -33,13 +33,35 @@ public class PathFinder : MonoBehaviour
         else
         {
             Debug.Log("경로 탐색 실패!");
-        }
+        }*/
 
-       /* StartCoroutine(FollowPath());*/
+        StartCoroutine(FindPath());
+    }
+
+    IEnumerator FindPath()
+    {
+        yield return new WaitForSeconds(1f);
+
+        Vector2Int start = new Vector2Int((int)_startPos.position.x, (int)_startPos.position.y);
+        Vector2Int end = new Vector2Int((int)_endPos.position.x, (int)_endPos.position.y);
+
+        bool success = AStar(start, end, out _path);
+        if (success)
+        {
+            Debug.Log("경로 탐색 성공!");
+
+        }
+        else
+        {
+            Debug.Log("경로 탐색 실패!");
+        }
     }
 
     private void Update()
     {
+        if (_path == null)
+            return;
+
         for (int i = 0; i < _path.Count - 1; i++)
         {
             Vector3 from = new Vector3(_path[i].x, _path[i].y, 0);
