@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "802261368421",
+    "firebase_url": "https://unitylastproject-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "unitylastproject",
+    "storage_bucket": "unitylastproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802261368421:android:079461e9f2c380f3fe108c",
+        "android_client_info": {
+          "package_name": "com.KGA.UnityLastProject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtrwVNTQnQzUIWhWOeuYQ3FHs8FWmckhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
