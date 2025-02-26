@@ -133,6 +133,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: PathManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5849481020599568013, guid: 136572693642d3e4d8a2ae46fb2f89df, type: 3}
+      propertyPath: _monster2
+      value: 
+      objectReference: {fileID: 6997802367103074199, guid: 9666337aa3eefd14d81280b149abf300, type: 3}
+    - target: {fileID: 5849481020599568013, guid: 136572693642d3e4d8a2ae46fb2f89df, type: 3}
+      propertyPath: _monster3
+      value: 
+      objectReference: {fileID: 7798015496938193665, guid: a900bd2c7d817cf41a5dc2cecf014a21, type: 3}
+    - target: {fileID: 5849481020599568013, guid: 136572693642d3e4d8a2ae46fb2f89df, type: 3}
+      propertyPath: _monster4
+      value: 
+      objectReference: {fileID: 8627066430088908715, guid: bc860f527b787304b885ae6b401c3717, type: 3}
+    - target: {fileID: 5849481020599568013, guid: 136572693642d3e4d8a2ae46fb2f89df, type: 3}
+      propertyPath: ClearStage.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849481020599568013, guid: 136572693642d3e4d8a2ae46fb2f89df, type: 3}
+      propertyPath: ClearStage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849481020599568013, guid: 136572693642d3e4d8a2ae46fb2f89df, type: 3}
+      propertyPath: ClearStage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5849481020599568014, guid: 136572693642d3e4d8a2ae46fb2f89df, type: 3}
       propertyPath: m_RootOrder
       value: 3
