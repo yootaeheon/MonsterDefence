@@ -21,25 +21,26 @@ public class PathFinder : MonoBehaviour
         _startPos = _startObj.transform;
         _endPos = _endObj.transform;
 
-        /*Vector2Int start = new Vector2Int((int)_startPos.position.x, (int)_startPos.position.y);
+        Vector2Int start = new Vector2Int((int)_startPos.position.x, (int)_startPos.position.y);
         Vector2Int end = new Vector2Int((int)_endPos.position.x, (int)_endPos.position.y);
 
         bool success = AStar(start, end, out _path);
         if (success)
         {
             Debug.Log("경로 탐색 성공!");
-           
+
         }
         else
         {
             Debug.Log("경로 탐색 실패!");
-        }*/
+        }
 
         StartCoroutine(FindPath());
     }
 
     IEnumerator FindPath()
     {
+        _path = null;   
         yield return new WaitForSeconds(1f);
 
         Vector2Int start = new Vector2Int((int)_startPos.position.x, (int)_startPos.position.y);

@@ -17,8 +17,6 @@ public class MonsterSpawner : MonoBehaviour
 
     GameObject[] Monsters = new GameObject[4];
 
-    public UnityEvent ClearStage;
-
     private void Awake()
     {
         Monsters[0] = _monster1;
