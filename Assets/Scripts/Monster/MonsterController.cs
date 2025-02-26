@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class MonsterController : Monster, IDamagable
@@ -6,8 +5,6 @@ public class MonsterController : Monster, IDamagable
     Coroutine followPathRoutine;
 
     private Animator _animator;
-
-    private AnimatorOverrideController _controller;
 
     private void Awake()
     {
@@ -24,7 +21,6 @@ public class MonsterController : Monster, IDamagable
     {
         if (CurHp <= 0)
         {
-            _animator.Play(AnimDefine.Dead);
             Die();
         }
     }
@@ -38,6 +34,14 @@ public class MonsterController : Monster, IDamagable
 
     public void Die()
     {
+        _animator.Play(AnimDefine.Dead);
+        GameManager.Instance.MonsterCount--;
+
+        if (GameManager.Instance.MonsterCount == 0)
+        {
+            GameManager.Instance.OnStageClear?.Invoke();
+        }
+
         Destroy(gameObject); // 추후 풀링 적용하여 ReturnPool 적용
     }
 }
