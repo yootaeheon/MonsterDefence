@@ -7,15 +7,13 @@ using UnityEngine.TextCore.Text;
 
 public class MonsterSpawner : MonoBehaviour
 {
-
     [SerializeField] GameObject _monster1;
     [SerializeField] GameObject _monster2;
     [SerializeField] GameObject _monster3;
     [SerializeField] GameObject _monster4;
 
     [HideInInspector] Transform _startPos;
-
-    private int monsterCount;
+    private int TotalSpawnNum;
 
     GameObject[] Monsters = new GameObject[4];
 
@@ -29,19 +27,11 @@ public class MonsterSpawner : MonoBehaviour
         Monsters[3] = _monster4;
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-        
-    }
-
     private void Start()
     {
         _startPos = GameObject.FindWithTag("StartPos").transform;
+     
+        TotalSpawnNum = GameManager.Instance.MonsterCount ;
 
         spawnRoutine = StartCoroutine(SpawnRoutine());
     }
@@ -53,12 +43,18 @@ public class MonsterSpawner : MonoBehaviour
     {
         yield return monsterShortSpawnDelay;
 
-        while (monsterCount >= 0)
+        while (TotalSpawnNum >= 0)
         {
             for (int i = 0; i < 3; i++)
             {
+                if (TotalSpawnNum == 0)
+                {
+                    yield break;
+                }
+
+                Debug.Log(TotalSpawnNum);
                 Instantiate(Monsters[Random.Range(0, Monsters.Length)], _startPos.position, Quaternion.identity);
-                
+                TotalSpawnNum--;
                 yield return monsterShortSpawnDelay;
             }
             yield return monsterLongSpawnDelay;
