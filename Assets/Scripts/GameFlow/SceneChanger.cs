@@ -34,8 +34,6 @@ public class SceneChanger : MonoBehaviour
             case 2: GameManager.Instance.FilePath = "Map_02.csv"; break;
             case 3: GameManager.Instance.FilePath = "Map_03.csv"; break;
         }
-
-
     }
 
     public bool CheckEligibility(int ChallengeStage)
