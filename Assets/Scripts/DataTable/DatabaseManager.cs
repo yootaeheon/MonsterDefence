@@ -23,7 +23,7 @@ public class DatabaseManager : MonoBehaviour
 
     private void Awake()
     {
-      /*  if (Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -31,11 +31,14 @@ public class DatabaseManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }*/
+        }
     }
 
     private void OnEnable()
     {
+        if (Instance != null)
+            return;
+
         string userId = BackendManager.Auth.CurrentUser.UserId;
         userDataRef = BackendManager.Database.RootReference.Child(userId);
 
@@ -65,7 +68,7 @@ public class DatabaseManager : MonoBehaviour
                 userData.eMail = BackendManager.Auth.CurrentUser.Email;
                 userData.nickName = BackendManager.Auth.CurrentUser.DisplayName;
                 userData.level = 1;
-                userData.curStage = 1;
+                userData.curStage = 0;
                 userData.gold = 0;
 
                 string json = JsonUtility.ToJson(userData);
@@ -94,6 +97,9 @@ public class DatabaseManager : MonoBehaviour
 
     private void OnDisable()
     {
+        if (Instance != null)
+            return;
+
         levelRef.ValueChanged -= LevelRef_ValueChanged;
         levelRef.ValueChanged -= curStageRef_ValueChanged;
         levelRef.ValueChanged -= goldRef_ValueChanged;
@@ -103,30 +109,22 @@ public class DatabaseManager : MonoBehaviour
     {
         // 데이터 베이스가 바뀌면 다음 값으로 설정
         Debug.Log($"값 변경 이벤트 확인 : {e.Snapshot.Value.ToString()}");
-        level = int.Parse(e.Snapshot.Value.ToString());
+        /* level = int.Parse(e.Snapshot.Value.ToString());*/
     }
 
     private void curStageRef_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         // 데이터 베이스가 바뀌면 다음 값으로 설정
         Debug.Log($"값 변경 이벤트 확인 : {e.Snapshot.Value.ToString()}");
-        curStage = int.Parse(e.Snapshot.Value.ToString());
+        /* curStage = int.Parse(e.Snapshot.Value.ToString());*/
     }
 
     private void goldRef_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         // 데이터 베이스가 바뀌면 다음 값으로 설정
         Debug.Log($"값 변경 이벤트 확인 : {e.Snapshot.Value.ToString()}");
-        gold = int.Parse(e.Snapshot.Value.ToString());
+        /*gold = int.Parse(e.Snapshot.Value.ToString());*/
     }
-
-    /*private void LevelUp()
-    {
-    데이터베이스에 요청
-        levelRef.SetValueAsync(level + 1);
-    }*/
-
-
 }
 
 [System.Serializable]
