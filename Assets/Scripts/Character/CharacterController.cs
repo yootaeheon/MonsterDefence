@@ -38,6 +38,10 @@ public class CharacterController : MonoBehaviour
         {
             Model.CurMana = Model.MaxMana;
         }
+        if (Model.CurMana <= 0)
+        {
+            Model.CurMana = 0;
+        }
     }
 
     // 상태들을 초기화
