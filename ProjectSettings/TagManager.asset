@@ -8,6 +8,7 @@ TagManager:
   - EndPos
   - Monster
   - Character
+  - Tile
   layers:
   - Default
   - TransparentFX
