@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MonsterController : Monster, IDamagable
@@ -25,11 +26,18 @@ public class MonsterController : Monster, IDamagable
         }
     }
 
+    WaitForSeconds waitCurAnim = new(0.7f);
+    IEnumerator ReturnMoveAnim()
+    {
+        yield return waitCurAnim;
+        _animator.Play(AnimDefine.Move);
+    }
     public void TakeDamage(int damage)
     {
         CurHp -= damage - Defense; // 최종 데미지 = 데미지 - 방어력
         _animator.Play(AnimDefine.TakeDamage);
         Debug.Log($"{damage - Defense} 피해를 입었다!");
+        StartCoroutine(ReturnMoveAnim());
     }
 
     public void Die()
