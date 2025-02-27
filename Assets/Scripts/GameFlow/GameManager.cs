@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
 
-public class GameManager : MonoBehaviour
+public class GameManager : UIBInder
 {
     public static GameManager Instance { get; private set; }
 
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         SetSingleton();
-
+        BindAll();
         CurLife = MaxLife;
     }
 
@@ -98,6 +98,18 @@ public class GameManager : MonoBehaviour
 
     public void Clear()
     {
+        onClearCanvasRoutine = StartCoroutine(OnClearCanvas());
+        
+    }
+
+    WaitForSeconds waitContinue = new(2.5f);
+    Coroutine onClearCanvasRoutine;
+    IEnumerator OnClearCanvas()
+    {
+        yield return waitContinue;
+        GetUI("ClearCanvas").SetActive(true);
+        yield return waitContinue;
+        GetUI("ClearCanvas").SetActive(false);
         ClearStage(ChallengeStage);
     }
 }
