@@ -1,6 +1,5 @@
 using Firebase.Database;
 using Firebase.Extensions;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DatabaseManager : MonoBehaviour
@@ -16,10 +15,10 @@ public class DatabaseManager : MonoBehaviour
     [SerializeField] int gold;
     public int Gold { get { return gold; } set { gold = value; } }
 
-    public DatabaseReference userDataRef { get;private set; }
+    public DatabaseReference userDataRef { get; private set; }
     public DatabaseReference nickNameRef { get; private set; }
     public DatabaseReference levelRef { get; private set; }
-    public DataSnapshot levelSnapshot {  get; private set; }
+    public DataSnapshot levelSnapshot { get; private set; }
     public DatabaseReference curStageRef { get; private set; }
     public DatabaseReference goldRef { get; private set; }
     public DataSnapshot goldSnapshot { get; private set; }
@@ -56,10 +55,8 @@ public class DatabaseManager : MonoBehaviour
             {
                 Debug.Log("¸øºÒ·¯¿È");
             }
-            if (task.IsCompleted)
-            {
-                levelSnapshot = task.Result;
-            }
+            levelSnapshot = task.Result;
+            Debug.Log("ºÒ·¯¿È");
         });
         curStageRef = userDataRef.Child("curStage");
         goldRef = userDataRef.Child("gold");
@@ -95,12 +92,12 @@ public class DatabaseManager : MonoBehaviour
                 userData.curStage = 0;
                 userData.gold = 0;
 
-                 json = JsonUtility.ToJson(userData);
+                json = JsonUtility.ToJson(userData);
                 userDataRef.SetRawJsonValueAsync(json);
             }
             else
             {
-                 json = snapShot.GetRawJsonValue();
+                json = snapShot.GetRawJsonValue();
 
                 UserData userData = JsonUtility.FromJson<UserData>(json);
 
@@ -154,7 +151,7 @@ public class DatabaseManager : MonoBehaviour
 [System.Serializable]
 public class UserData : MonoBehaviour
 {
-    public static UserData Instance {  get; private set; }
+    public static UserData Instance { get; private set; }
     public string userId { get; set; }
     public string eMail { get; set; }
     public string nickName { get; set; }
