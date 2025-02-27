@@ -1288,6 +1288,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565609848}
   m_CullTransparentMesh: 1
+--- !u!114 &1644828768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4949288397886579052, guid: e8f2835b10b1dd44fb2d7bea8d953b19, type: 3}
+  m_PrefabInstance: {fileID: 4949288397378631678}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0006da29a75910a40a608afb87c0fa47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1849649292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,6 +1902,7 @@ MonoBehaviour:
   - {fileID: 3743009382560118233, guid: fca5419a17986bf4a820cb0e2d8c9e22, type: 3}
   - {fileID: 6791034881702215281, guid: 586c073f7771df747bcec0a3e5d58f05, type: 3}
   - {fileID: 3566655499817936244, guid: 3d0e54dcd47cf9b449b9e9943631b347, type: 3}
+  mapGenerator: {fileID: 1644828768}
 --- !u!114 &1984551363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,6 +1920,7 @@ MonoBehaviour:
   samuraiButton: {fileID: 344353309}
   longSwordButton: {fileID: 1873372379}
   staffButton: {fileID: 342765987}
+  mapGenerator: {fileID: 1644828768}
 --- !u!114 &1984551364
 MonoBehaviour:
   m_ObjectHideFlags: 0

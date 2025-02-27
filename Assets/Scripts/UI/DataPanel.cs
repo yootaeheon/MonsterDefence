@@ -9,26 +9,32 @@ public class DataPanel : UIBInder
     {
         BindAll();
     }
+    private void OnEnable()
+    {
+        DatabaseManager.Instance.onLevelChanged.AddListener(LevelChanged);
+        DatabaseManager.Instance.onLevelChanged.AddListener(CurStageChanged);
+        DatabaseManager.Instance.onLevelChanged.AddListener(GoldChanged);
+    }
 
     private void Start()
     {
         GetUI<TextMeshProUGUI>("NickNameText").text = BackendManager.Auth.CurrentUser.DisplayName;
-        GetUI<TextMeshProUGUI>("LevelText").text = $"{DatabaseManager.Instance.goldRef}.LV";
-        Debug.Log(DatabaseManager.Instance.goldRef);
-        Debug.Log(DatabaseManager.Instance);
-        GetUI<TextMeshProUGUI>("GoldText").text = $"{1}G";
     }
+    
 
-    private void Update()
+    private void LevelChanged()
     {
-        if (DatabaseManager.Instance.goldRef == null)
-        {
-            Debug.Log("≥Œ¿Ã¥Ÿ!!!!!!!!!!!!!!!!!!!!!!!!!");
-            return;
-        }
-
-        GetUI<TextMeshProUGUI>("LevelText").text = $"{DatabaseManager.Instance.goldRef}.LV";
-        Debug.Log(DatabaseManager.Instance.goldRef);
-        Debug.Log(DatabaseManager.Instance);
+        GetUI<TextMeshProUGUI>("LevelText").text = $"{DatabaseManager.Instance.Level}.LV";
     }
+
+    private void CurStageChanged()
+    {
+        GetUI<TextMeshProUGUI>("CurStage").text = $"{DatabaseManager.Instance.CurStage}.Stage";
+    }
+
+    private void GoldChanged()
+    {
+        GetUI<TextMeshProUGUI>("GoldText").text = $"{DatabaseManager.Instance.Gold}G";
+    }
+
 }
