@@ -1,10 +1,14 @@
+using BasicNavMesh;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> Characters = new List<GameObject>();
+
+    [SerializeField] MapGenerator mapGenerator;
 
     public int charNum { get; set; }
 
@@ -24,18 +28,10 @@ public class CharacterSpawner : MonoBehaviour
         Debug.Log($"{charNum}번 캐릭터 생성");
         selected = false;
         charNum = 0;
-    }
 
-    private void Update()
-    {
-        /*Vector2 mousePos = Input.mousePosition;
-        mousePos = Camera.main.WorldToScreenPoint(mousePos);
-
-        Vector2 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);*/
-
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-
-     
+        foreach (GameObject button in mapGenerator.buttons)
+        {
+            button.gameObject.SetActive(false);
+        }
     }
 }

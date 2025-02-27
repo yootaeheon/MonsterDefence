@@ -17,6 +17,8 @@ namespace BasicNavMesh
         [SerializeField] GameObject endPrefab;
         [SerializeField] Button spawnButton; // UI 버튼 프리팹
 
+        public List<GameObject> buttons = new List<GameObject>();
+
         [SerializeField] Canvas canvas; // 버튼이 추가될 캔버스
 
         private CSVParser data = new CSVParser();
@@ -77,6 +79,9 @@ namespace BasicNavMesh
 
             // 버튼 인스턴스화 후, 캔버스의 자식으로 설정
             Button newButton = Instantiate(spawnButton, realSpawnPos, Quaternion.identity, canvas.transform);
+            newButton.gameObject.SetActive(false);
+            /*newButton.GetComponent<SpawnButtonData>().CanSpawn = true;*/
+            buttons.Add(newButton.gameObject);
 
             // 버튼 클릭 이벤트 설정
             newButton.onClick.AddListener(() => spawner.Spawn(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
