@@ -32,7 +32,7 @@ public class StateSkill : CharacterState, IAtivateSkill
         Debug.Log("Skill -> Attack");
     }
 
-    WaitForSeconds delay = new(2f);
+    WaitForSeconds delay = new(3f);
     private int delay2 => Controller.Model.AttackDelay;
     IEnumerator SkillRoutine()
     {

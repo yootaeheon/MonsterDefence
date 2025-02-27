@@ -14,10 +14,6 @@ public class StateAttack : CharacterState
         stateType = StateType.Attack;
     }
 
-    public override void Enter()
-    {
-
-    }
 
     public override void OnUpdate()
     {
