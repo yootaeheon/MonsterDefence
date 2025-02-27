@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -57,6 +58,10 @@ public class Adapter : MonoBehaviour
         _model.CanUse = Skill.CanUse;
         _model.Cost = Skill.Cost;
         _model.SkillType = (CharacterModel.Type_Skill)Skill.SkillType;
+        if (Weapon.SkillClip == null)
+        {
+        _model.SkillType = CharacterModel.Type_Skill.SpeedUp;
+        }
     }
 }
 

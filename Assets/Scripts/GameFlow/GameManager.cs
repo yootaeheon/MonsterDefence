@@ -93,13 +93,14 @@ public class GameManager : UIBInder
             DatabaseManager.Instance.CurStage = ChallengeStage;
         }
 
-        
+       /* DatabaseManager.Instance.Level += 1;
+        DatabaseManager.Instance.Gold += 100;*/
     }
 
     public void Clear()
     {
-        onClearCanvasRoutine = StartCoroutine(OnClearCanvas());
-        
+       /* onClearCanvasRoutine = StartCoroutine(OnClearCanvas());*/
+        ClearStage(ChallengeStage);
     }
 
     WaitForSeconds waitContinue = new(2.5f);
