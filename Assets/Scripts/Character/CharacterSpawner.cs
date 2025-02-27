@@ -17,6 +17,9 @@ public class CharacterSpawner : MonoBehaviour
 
     public void Spawn(Vector2 spawnPos)
     {
+        if (!selected)
+            return;
+
         Instantiate(Characters[charNum-1], spawnPos, Quaternion.identity);
         Debug.Log($"{charNum}번 캐릭터 생성");
         selected = false;
@@ -33,12 +36,6 @@ public class CharacterSpawner : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 
-        if (selected)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Spawn(mousePosition);
-            }
-        }
+     
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 namespace BasicNavMesh
 {
@@ -14,20 +15,26 @@ namespace BasicNavMesh
         [SerializeField] TileBase wallTile; // 타일 오브젝트
         [SerializeField] GameObject startPrefab;
         [SerializeField] GameObject endPrefab;
+        [SerializeField] Button spawnButton; // UI 버튼 프리팹
+
+        [SerializeField] Canvas canvas; // 버튼이 추가될 캔버스
 
         private CSVParser data = new CSVParser();
 
-        private List<string> Map = new List<string>() {"Map_01", "Map_02", "Map_03" };
+        private List<string> Map = new List<string>() { "Map_01", "Map_02", "Map_03" };
+
+        private CharacterSpawner spawner;
 
         private void Awake()
         {
+            spawner = FindAnyObjectByType<CharacterSpawner>();
             filePath = GameManager.Instance.FilePath;
 
             wallTilemap = FindAnyObjectByType<Tilemap>();
 
+
             Generate();
         }
-        
 
         public void Generate()
         {
@@ -41,6 +48,9 @@ namespace BasicNavMesh
                     {
                         Vector3Int tilePosition = new Vector3Int(x, -y, 0); // 2D 좌표 (y는 반전)
                         wallTilemap.SetTile(tilePosition, wallTile);
+
+                        // Wall 타일 생성 후 버튼도 함께 생성
+                        CreateButtonAtTilePosition(tilePosition);
                     }
                     else if (data[y, x] == "Start")
                     {
@@ -54,6 +64,27 @@ namespace BasicNavMesh
                     }
                 }
             }
+        }
+
+        private void CreateButtonAtTilePosition(Vector3Int tilePosition)
+        {
+            // 타일 위치 -> 월드 좌표 변환
+            Vector3 worldPosition = wallTilemap.CellToWorld(tilePosition);
+
+            // 월드 좌표 -> 화면 좌표 변환
+            Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+            Vector2 realSpawnPos = new Vector2(screenPosition.x+ 90, screenPosition.y+90);
+
+            // 버튼 인스턴스화 후, 캔버스의 자식으로 설정
+            Button newButton = Instantiate(spawnButton, realSpawnPos, Quaternion.identity, canvas.transform);
+
+            // 버튼 클릭 이벤트 설정
+            newButton.onClick.AddListener(() => spawner.Spawn(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+        }
+
+        private void OnButtonClicked(Vector2 buttonPos)
+        {
+            spawner.Spawn(buttonPos);
         }
     }
 }
