@@ -15,4 +15,4 @@ MonoBehaviour:
   CharacterName: Int
   MaxHp: 30
   Defense: 3
-  MaxMana: 10
+  MaxMana: 5

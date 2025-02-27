@@ -67,6 +67,7 @@ public class StateSkill : CharacterState, IAtivateSkill
             return;
 
         Controller.Animator.Play(AnimDefine.CharSkill);
+        Debug.Log("Skill 애니메이션 재생!---------------------------------------");
         IDamagable damagable;
         damagable = cols.GetComponent<IDamagable>();
         damagable.TakeDamage(Controller.Model.SkillDamage);

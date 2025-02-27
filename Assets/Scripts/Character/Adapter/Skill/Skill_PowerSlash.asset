@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c21d6131ed6dbc4fb20e2834a8250fb, type: 3}
   m_Name: Skill_PowerSlash
   m_EditorClassIdentifier: 
+  SkillType: 0
   SkillName: PowerSlash
-  SkillDamage: 10
+  SkillDamage: 4
   CoolTime: 5
   CanUse: 0
   Cost: 10
-  SkillClip: {fileID: 7400000, guid: 549da90ffbd97444db0da51cfb3ca24b, type: 2}

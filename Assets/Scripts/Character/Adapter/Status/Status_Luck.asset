@@ -15,4 +15,4 @@ MonoBehaviour:
   CharacterName: Luck
   MaxHp: 50
   Defense: 4
-  MaxMana: 10
+  MaxMana: 5

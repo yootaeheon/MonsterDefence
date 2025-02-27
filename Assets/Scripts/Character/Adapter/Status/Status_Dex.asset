@@ -15,4 +15,4 @@ MonoBehaviour:
   CharacterName: Dex
   MaxHp: 60
   Defense: 5
-  MaxMana: 10
+  MaxMana: 5
