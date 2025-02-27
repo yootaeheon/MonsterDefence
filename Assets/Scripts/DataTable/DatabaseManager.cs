@@ -1,6 +1,7 @@
 using Firebase.Database;
 using Firebase.Extensions;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DatabaseManager : MonoBehaviour
 {
@@ -41,11 +42,9 @@ public class DatabaseManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (Instance != null)
-            return;
-
         string userId = BackendManager.Auth.CurrentUser.UserId;
         userDataRef = BackendManager.Database.RootReference.Child(userId);
+        Debug.Log("로그");
 
         nickNameRef = userDataRef.Child("nickName");
         levelRef = userDataRef.Child("level");
@@ -62,10 +61,7 @@ public class DatabaseManager : MonoBehaviour
         goldRef = userDataRef.Child("gold");
         goldRef.GetValueAsync().ContinueWithOnMainThread(task =>
         {
-            if (task.IsCompleted)
-            {
-                goldSnapshot = task.Result;
-            }
+            goldSnapshot = task.Result;
         });
 
         userDataRef.GetValueAsync().ContinueWithOnMainThread(task =>
@@ -125,26 +121,31 @@ public class DatabaseManager : MonoBehaviour
         levelRef.ValueChanged -= curStageRef_ValueChanged;
         levelRef.ValueChanged -= goldRef_ValueChanged;
     }
-
+    public UnityEvent onLevelChanged = new UnityEvent();
     private void LevelRef_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         // 데이터 베이스가 바뀌면 다음 값으로 설정
         Debug.Log($"값 변경 이벤트 확인 : {e.Snapshot.Value.ToString()}");
-        /* level = int.Parse(e.Snapshot.Value.ToString());*/
+        level = int.Parse(e.Snapshot.Value.ToString());
+        onLevelChanged.Invoke();
     }
 
+    public UnityEvent onCurStageChanged = new UnityEvent();
     private void curStageRef_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         // 데이터 베이스가 바뀌면 다음 값으로 설정
         Debug.Log($"값 변경 이벤트 확인 : {e.Snapshot.Value.ToString()}");
-        /* curStage = int.Parse(e.Snapshot.Value.ToString());*/
+        curStage = int.Parse(e.Snapshot.Value.ToString());
+        onCurStageChanged.Invoke();
     }
 
+    public UnityEvent onGoldChanged = new UnityEvent();
     private void goldRef_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         // 데이터 베이스가 바뀌면 다음 값으로 설정
         Debug.Log($"값 변경 이벤트 확인 : {e.Snapshot.Value.ToString()}");
-        /*gold = int.Parse(e.Snapshot.Value.ToString());*/
+        gold = int.Parse(e.Snapshot.Value.ToString());
+        onGoldChanged.Invoke();
     }
 }
 
