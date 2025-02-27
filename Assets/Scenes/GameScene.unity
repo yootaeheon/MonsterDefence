@@ -1927,9 +1927,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4235630607909699228, guid: bd56b51b98400304fa2b78367a607bd5, type: 3}
+      propertyPath: m_TagString
+      value: Tile
+      objectReference: {fileID: 0}
     - target: {fileID: 4235630608707065226, guid: bd56b51b98400304fa2b78367a607bd5, type: 3}
       propertyPath: m_Name
       value: Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235630608707065226, guid: bd56b51b98400304fa2b78367a607bd5, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 4235630608707065228, guid: bd56b51b98400304fa2b78367a607bd5, type: 3}
       propertyPath: m_RootOrder
@@ -2047,6 +2055,10 @@ PrefabInstance:
     - target: {fileID: 4949288397886579055, guid: e8f2835b10b1dd44fb2d7bea8d953b19, type: 3}
       propertyPath: m_Name
       value: MapGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949288397886579055, guid: e8f2835b10b1dd44fb2d7bea8d953b19, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8f2835b10b1dd44fb2d7bea8d953b19, type: 3}

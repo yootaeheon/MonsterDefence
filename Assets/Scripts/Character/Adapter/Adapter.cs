@@ -27,8 +27,9 @@ public class Adapter : MonoBehaviour
 
     private void Start()
     {
+        //애니메이터 오버라이드 
         OverrideController = new AnimatorOverrideController(_controller.Animator.runtimeAnimatorController);
-        _controller.Animator.runtimeAnimatorController = OverrideController; // 빌드에서 문제? 확인!
+        _controller.Animator.runtimeAnimatorController = OverrideController;
 
         // Status 초기화
         _model.CharacterName = Status.CharacterName;
