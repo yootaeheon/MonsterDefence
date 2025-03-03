@@ -41,7 +41,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 # **1.** A* 이용한 몬스터 경로 탐색 구현
 
----
 
 ## 1.1 구상
 
@@ -79,7 +78,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 # 2. ScriptableObject 이용한 캐릭터 생성 프레임 워크 구현
 
----
 
 ## 2.1 구상
 
@@ -131,7 +129,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 # **3. 상태 패턴** 이용한 캐릭터 상태 및 기능 구현
 
----
 
 ## 3.1 구상
 
@@ -183,7 +180,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 # **4.** CSV 파싱 이용한 맵 생성기 구현
 
----
 
 ## 4.1 구상
 
@@ -244,7 +240,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
     
 # **5.** Firebase 이용한 로그인/회원가입 구현 및 유저데이터 데이터베이스에 저장
 
----
 
 ## 5.1 구상
 
@@ -306,8 +301,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 # **6. UI 관리**
 
----
-
 ## 6.1 구상
 
 - Canvas 분할을 통한 드로우콜 줄이기
@@ -355,8 +348,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 # Ⅲ. 이슈 및 해결 사항
 
 ## 1. Firebase 실시간 데이터 UI 연동 미적용 문제  ****
-
----
 
 ### 원인
 
