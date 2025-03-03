@@ -37,14 +37,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 1. Firebase 실시간 데이터 UI 연동 미적용 문제
 
-![스크린샷 2025-02-28 000616.png](attachment:5c394201-0ae3-4088-bbe0-6844d3c96d63:스크린샷_2025-02-28_000616.png)
-
-![image.png](attachment:998c420b-c86e-4282-84b5-03e7b39c3d84:image.png)
-
-![스크린샷 2025-02-28 000855.png](attachment:ecbafe1a-eeb8-4cd3-bdf5-dd897031759f:스크린샷_2025-02-28_000855.png)
-
-![image.png](attachment:c861d869-1b99-4124-a7ef-a928c1b31dae:image.png)
-
 # **Ⅱ**. 구현 컨텐츠
 
 # **1.** A* 이용한 몬스터 경로 탐색 구현
@@ -84,10 +76,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
     - 최적화
         - 복잡한 연산을 최소한으로 하기 위해 PathManager 생성하여 경로 탐색은 1회만 진행, 생성된 몬스터들이  탐색한 최단 경로를 받아서 이동
         
-        ![<최단 경로 탐색 결과>](attachment:4f29ec2f-607d-4ff6-9d45-6648e97cf9f7:image.png)
-        
-        <최단 경로 탐색 결과>
-        
 
 # 2. ScriptableObject 이용한 캐릭터 생성 프레임 워크 구현
 
@@ -102,10 +90,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 ### ScriptableObject를 참조시킬 Adapter 구현
 
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
-
 - 직렬화를 이용하여 Status, Weapon, Skill 데이터를 넣어줄 Adapter 구현
 - 게임 실행 시 각 카테고리의 데이터를 캐릭터 모델에 연동하여 초기화
 - ScriptableObject를 이용하여 각 카테고리의 데이터를 저장
@@ -113,29 +97,11 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
     - Weapon : 사용할 무기의 정보, 능력치, 각 상태의 애니메이션 클립
     - Skill : 스킬의 타입과 능력치, 비용케ㅐ
 
-![<캐릭터 틀>](attachment:0ce6f141-ecaf-424e-85c1-e40ce83546bf:스크린샷_2025-03-02_213515.png)
-
-<캐릭터 틀>
-
-![<Status 예시>](attachment:92ca0630-4434-475b-b254-45ce1d7af5a1:스크린샷_2025-02-26_222331.png)
-
-<Status 예시>
-
-![<Weapon 예시>](attachment:487f28dc-b007-4f4f-8e3b-27d76175532b:스크린샷_2025-02-26_222400.png)
-
-<Weapon 예시>
-
-![<Skill 예시>](attachment:a0ce98ad-4b94-4015-bf73-3c73cd96179e:스크린샷_2025-02-26_222317.png)
-
 <Skill 예시>
 
 - 마네킹 프리팹에 각 카테고리에 맞는 데이터를 참조만하여 빠르게 캐릭터를 생성 가능
     - 마네킹 : CharacterContorller와 Adapter 컴포넌트만 소유한 캐릭터 틀
-        
-        ![<캐릭터 생성 과정>](attachment:c16cf754-967b-4f64-9d42-22b0677a589b:UnityLastProject_-_SampleScene_-_Windows_Mac_Linux_-_Unity_2021.3.42f1_Personal___DX11__2025-02-26_22-34-19.gif)
-        
-        <캐릭터 생성 과정>
-        
+             
 - 이 방식을 사용한 이유
     - 생산성
         - 캐릭터 생성 과정을 압축시켜 생산성을 향상하고자 이 프레임 워크를 구축하였음
@@ -152,7 +118,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
     - 각 캐릭터의 애니메이션을 ScriptableObject 기반 데이터와 연동하여 동적으로 변경 가능
     - 애니메이터 오버라이드 컨트롤러를 통해 기본 애니메이터를 유지하면서, 캐릭터별로 고유한 애니메이션 적용
         
-        ![image.png](attachment:31bee0e1-1c9a-4d93-bc67-9f9953823bfe:image.png)
         
 - **이 방식을 사용한 이유**
     - 캐릭터 생성 과정 압축
@@ -178,11 +143,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 ### 각 상태를 독립적인 클래스로 분리
 
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
 
 - **구현 기술**
     - Idle, Attack, Skill 상태를 각각의 클래스에서 관리
@@ -194,8 +154,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
         - 특정 상태의 로직을 추가/수정할 때 다른 상태에 영향을 주지 않음
     - 디버깅 용이
         - 문제 발생 시 특정 상태에서 직관적으로 디버깅 가능하여 쉽게 문제를 찾아 해결 가능
-    
-    ![스크린샷 2025-02-28 000306.png](attachment:6331687e-5145-4e6a-93a4-a4fb5fb59b44:스크린샷_2025-02-28_000306.png)
     
 
 ### 각 조건에 맞게 StateMachine에서 상태 전환
@@ -222,8 +180,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
         - 사각형 타일 맵 구조에서 몬스터 판정 정확도 향상
         - 범위 수치를 달리하여 캐릭터의 다양성 구현 고려
     
-    ![스크린샷 2025-02-27 235105.png](attachment:56725b53-4b4d-4211-a526-74f9e6cd1bc9:6874a907-532c-474e-99b7-884093f684d5.png)
-    
 
 # **4.** CSV 파싱 이용한 맵 생성기 구현
 
@@ -238,12 +194,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 ## 4.2 설계 방법
 
 ### CSV Parser 구현 (CSV 파일을 읽고, 데이터를 저장 및 조회하는 기능을 담당)
-
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
 
 - **구현 기술**
     - CSV 파일을 읽어 데이터를 2차원 배열로 저장
@@ -261,12 +211,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 ### Map 생성기 구현
 
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
-
 - **구현 기술**
     - CSV Parser에서 경로를 저장한 변수를 받아 맵을 생성하는 식으로 진행하여 게임 씬은 1개를 사용
         - GameManager에서 파일 경로를 받아 GameScene에서 맵을 생성
@@ -280,21 +224,7 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
     - 메모리 최적화
         - 여러 스테이지 씬을 생성하지 않고 1개의 게임 씬에서 CSV 파일을 읽어들여 생성하는 방식이기 때문에 메모리 최적화 가능
     
-    ![<생성할 CSV 파일>](attachment:7c7797fd-1385-4d9a-9f5c-5b6885372d2b:e8454a63-093f-45d7-999d-1caf9d14154b.png)
-    
-    <생성할 CSV 파일>
-    
-    ![<파싱하여 생성한 맵>](attachment:6b39bbf5-81ca-4d8e-93a9-c313377b0b03:image.png)
-    
-    <파싱하여 생성한 맵>
-    
     ### 캐릭터 생성 시 타일 맵 위에만 생성 가능
-    
-    [](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-    
-    [<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-    
-    <투표 순서도>
     
     - **구현 기술**
         - 타일맵을 기준으로 캐릭터 생성 위치 제한
@@ -311,9 +241,7 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
         - 직관적인 UI/UX
             - 클릭 가능한 위치를 시각적으로 안내하여 직관적인 캐릭터 배치 가능
     
-    ![몬스터 생성 (1).gif](attachment:96385d6d-bba3-4807-aa35-81163513414e:몬스터_생성_(1).gif)
     
-
 # **5.** Firebase 이용한 로그인/회원가입 구현 및 유저데이터 데이터베이스에 저장
 
 ---
@@ -326,12 +254,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 ## 5.2 설계 방법
 
 ### 회원가입 및 로그인
-
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
 
 - **구현 기술**
     - Firebase의 이메일 인증 기능 이용하여 회원가입 및 로그인 기능 구현
@@ -347,29 +269,7 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
         - 각 기능의 로직을 분리하여 관리하여 유지보수성을 향상
         - 기능 문제 발생 시 각 기능 로직에서 수정 가능
 
-![<로그인 창>](attachment:ff0270d0-b8d2-4710-a05c-25b8279a127b:스크린샷_2025-02-28_000616.png)
-
-<로그인 창>
-
-![<비밀번호 재설정 창>](attachment:8111202e-32e1-47ce-99c2-dbdc39cf90fd:스크린샷_2025-02-28_000640.png)
-
-<비밀번호 재설정 창>
-
-![<회원가입 창>](attachment:e3e12043-9568-46df-a57f-dd447d368d18:스크린샷_2025-02-28_000624.png)
-
-<회원가입 창>
-
-![<이메일 인증 대기 창>](attachment:19aa77b4-5aec-4118-80c3-c4bda1ae16cd:스크린샷_2025-02-28_000811.png)
-
-<이메일 인증 대기 창>
-
 ### 유저데이터 Firebase의 RealTime Database에 저장
-
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
 
 - **구현 기술**
     - 이벤트식 연결로 유저데이터 실시간으로 데이터베이스와 연동
@@ -388,21 +288,7 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
     - 자동 저장 및 백업
         - 유저 데이터가 클라우드에 저장되므로 기기 변경이나 데이터 손실 시에도 복구가 가능
 
-![<Firebase 실시간 데이터 저장중>](attachment:22b7059f-38ad-4091-b2dc-fda9e23fd4d0:image.png)
-
-<Firebase 실시간 데이터 저장중>
-
-![<Firebase 데이터 UI 연동>](attachment:3ced62f4-7c67-43bc-8a6f-2c053a044ee8:싨기간데이터연동.jpg)
-
-<Firebase 데이터 UI 연동>
-
 ### BackendManager, DatabaseManager 싱글톤으로 구현
-
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
 
 - **구현 기술**
     - 싱글톤 패턴 적용
@@ -432,12 +318,6 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
 
 ### Canvas 분할
 
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
-
 - **구현 기술**
     - UI의 각 기능을 분리하여 개별적인 Canvas로 구성
     - UI 변화가 적은 부분과 잦은 부분을 분리하여 최적화
@@ -448,18 +328,8 @@ Github : [**깃허브 링크**](https://github.com/yootaeheon/UnityLastProject)
         - UI 변경이 발생하는 영역만 다시 그리도록 Canvas를 분할하여 드로우콜 감소
         - 전체적인 성능 향상 및 프레임 유지
             
-            ![<Game 씬 에시>](attachment:4c418f6e-17c4-49d9-a26f-ec09fd68a1dc:캔버스분할예시.jpg)
-            
-            <Game 씬 에시>
-            
 
 ### View 클래스에서 UI 관리
-
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyAxUhkJL1KGr28qrGo2cGqaMKC-qyvKz-tKNjcSIKT_RtCLLPEhJ-hf2EPogA0u9Euq6uN6p1iX2tmi9uAVX-zt83NuhX32ZqObUoRJLG6KA56kP5wCvSKpWGGdU9yrRJIDZU5Q?key=yQ6zY4mO39wxZSdIKEQBKM23)
-
-[<투표 순서도>](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdX2yOdVHQ0ixkGQbWDFNMCBYZuh-IlUJoqMTMU1sjnqbxhlneWYI3XGuZ9knHc2vvsLGDS2j6WdP6EQO6Q9q6jaJkPwVh-G1OaOqmvCqHtZkbU6QehZiJCq6j-TYoAag6m1vP3Gg?key=QLb5grh6-g01snpKXaMdZBiy)
-
-<투표 순서도>
 
 - **구현 기술**
     - MVC(Model-View-Controller) 패턴을 적용하여 UI 관리
@@ -499,6 +369,3 @@ DatabaseManager에서 값 변경 시 데이터베이스에 저장은 하지만 �
 업데이트에서 프레임마다 확인하는 방법보다 이벤트를 사용하여 값 변경 시 UI에 연결
  Firebase 데이터베이스의 ValueChanged 이벤트를 활용하여 데이터가 변경될 때 자동으로 변수 값을 업데이트하고, UnityEvent를 통해 변경된 값을 UI와 연결시킬 수 있게 구현
 
-![<이벤트를 활용하여 데이터 변경시 실시간 업뎅이트>](attachment:4b6f9f9a-f39d-40a1-84ce-a58a4fba000c:image.png)
-
-<이벤트를 활용하여 데이터 변경시 실시간 업뎅이트>
