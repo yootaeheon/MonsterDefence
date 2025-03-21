@@ -75,7 +75,7 @@ namespace BasicNavMesh
 
             // 월드 좌표 -> 화면 좌표 변환
             Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
-            Vector2 realSpawnPos = new Vector2(screenPosition.x+ 90, screenPosition.y+90);
+            Vector2 realSpawnPos = new Vector2(screenPosition.x + 45, screenPosition.y + 45);
 
             // 버튼 인스턴스화 후, 캔버스의 자식으로 설정
             Button newButton = Instantiate(spawnButton, realSpawnPos, Quaternion.identity, canvas.transform);
