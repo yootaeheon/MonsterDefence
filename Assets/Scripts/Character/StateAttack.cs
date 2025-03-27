@@ -26,6 +26,7 @@ public class StateAttack : CharacterState
         if (cols == null)
         {
             cols = Physics2D.OverlapBox(Controller.transform.position, Controller.Model.AttackRange, 0, Controller.MonsterLayer);
+
         }
         else
         {
