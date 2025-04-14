@@ -99,18 +99,42 @@ public class GameManager : UIBInder
 
     public void Clear()
     {
-       /* onClearCanvasRoutine = StartCoroutine(OnClearCanvas());*/
-        ClearStage(ChallengeStage);
+        clearRoutine = StartCoroutine(ClearRoutine());
+       /* ClearStage(ChallengeStage);*/
     }
 
     WaitForSeconds waitContinue = new(2.5f);
-    Coroutine onClearCanvasRoutine;
-    IEnumerator OnClearCanvas()
+    Coroutine clearRoutine;
+    IEnumerator ClearRoutine()
     {
+        GameObject resultCanvas = GameObject.Find("ResultCanvas");
+        ResultCanvas r = resultCanvas.GetComponent<ResultCanvas>();
+
+
         yield return waitContinue;
-        GetUI("ClearCanvas").SetActive(true);
+        r.OnClearPanel();
         yield return waitContinue;
-        GetUI("ClearCanvas").SetActive(false);
+        r.OffClearPanel();
         ClearStage(ChallengeStage);
     }
+
+
+    public void GameOver()
+    {
+        gameOverRoutine = StartCoroutine(GameOverRoutine());
+    }
+
+    Coroutine gameOverRoutine;
+    IEnumerator GameOverRoutine()
+    {
+        GameObject resultCanvas = GameObject.Find("ResultCanvas");
+        ResultCanvas r = resultCanvas.GetComponent<ResultCanvas>();
+
+        yield return waitContinue;
+        r.OnClearPanel();
+        yield return waitContinue;
+        r.OffClearPanel();
+        ClearStage(ChallengeStage);
+    }
+}
 }

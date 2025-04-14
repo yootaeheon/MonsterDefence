@@ -32,6 +32,7 @@ public class MonsterController : Monster, IDamagable
         yield return waitCurAnim;
         _animator.Play(AnimDefine.Move);
     }
+
     public void TakeDamage(int damage)
     {
         CurHp -= damage - Defense; // 최종 데미지 = 데미지 - 방어력

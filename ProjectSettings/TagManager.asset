@@ -9,6 +9,8 @@ TagManager:
   - Monster
   - Character
   - Tile
+  - ClearCanvas
+  - GameOverCanvas
   layers:
   - Default
   - TransparentFX
