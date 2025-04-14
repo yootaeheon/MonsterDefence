@@ -21,26 +21,24 @@ public class SelectCharacterPanel : MonoBehaviour
 
     private void Start()
     {
-        spearButton.onClick.AddListener(() => SelectCharacter(1));
-        fireButton.onClick.AddListener(() => SelectCharacter(2));
-        samuraiButton.onClick.AddListener(() => SelectCharacter(3));
-        longSwordButton.onClick.AddListener(() => SelectCharacter(4));
-        staffButton.onClick.AddListener(() => SelectCharacter(5));
+        spearButton.onClick.AddListener(() => SelectCharacter(1, spearButton));
+        fireButton.onClick.AddListener(() => SelectCharacter(2, fireButton));
+        samuraiButton.onClick.AddListener(() => SelectCharacter(3, samuraiButton));
+        longSwordButton.onClick.AddListener(() => SelectCharacter(4, longSwordButton));
+        staffButton.onClick.AddListener(() => SelectCharacter(5, staffButton));
     }
 
-    public void SelectCharacter(int index)
+    public void SelectCharacter(int index, Button clickedButton)
     {
         spawner.charNum = index;
         spawner.selected = true;
         Debug.Log($"{index}번 캐릭터 선택");
 
+        clickedButton.enabled = false;
+        
         foreach (GameObject button in mapGenerator.buttons)
         {
-           /* if (button.GetComponent<SpawnButtonData>().CanSpawn == true)
-            {*/
-                button.gameObject.SetActive(true);
-            /*}*/
-
+            button.gameObject.SetActive(true);
         }
     }
 }
