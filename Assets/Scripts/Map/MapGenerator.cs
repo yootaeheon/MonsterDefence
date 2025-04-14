@@ -86,11 +86,14 @@ namespace BasicNavMesh
             // 버튼 클릭 이벤트 설정
             newButton.onClick.AddListener(() =>
             {
-                spawner.Spawn(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                RectTransform buttonRect = newButton.GetComponent<RectTransform>();
+
+                spawner.Spawn(Camera.main.ScreenToWorldPoint(buttonRect.position));
                 newButton.GetComponent<Image>().enabled = false;
                 newButton.onClick.AddListener(() => Destroy(newButton));
             });
         }
+
 
         private void OnButtonClicked(Vector2 buttonPos)
         {
