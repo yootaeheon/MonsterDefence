@@ -21,11 +21,12 @@ public class GameManager : UIBInder
 
     [SerializeField] int monsterCount;
     public int MonsterCount { get { return monsterCount; } set { monsterCount = value; } }
+
+    [SerializeField] int monsterLevel;
     #endregion
 
     public UnityEvent OnStageClear = new UnityEvent();
-
-   
+    public UnityEvent OnStageGameOver = new UnityEvent();
 
     private void Awake()
     {
@@ -37,11 +38,13 @@ public class GameManager : UIBInder
     private void OnEnable()
     {
         OnStageClear.AddListener(Clear);
+        OnStageGameOver.AddListener(GameOver);
     }
 
     private void OnDisable()
     {
         OnStageClear.RemoveAllListeners();
+        OnStageGameOver.RemoveAllListeners();
     }
 
     private void SetSingleton()
@@ -131,10 +134,11 @@ public class GameManager : UIBInder
         ResultCanvas r = resultCanvas.GetComponent<ResultCanvas>();
 
         yield return waitContinue;
-        r.OnClearPanel();
+        r.OnGameOverPanel();
         yield return waitContinue;
-        r.OffClearPanel();
-        ClearStage(ChallengeStage);
+        r.OffGameOverPanel();
+
+        SceneChanger.ChangeScene(1);
     }
 }
-}
+

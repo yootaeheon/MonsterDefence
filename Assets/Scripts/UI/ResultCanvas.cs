@@ -15,7 +15,8 @@ public class ResultCanvas : UIBInder
 
     private void Update()
     {
-        GetUI<TextMeshProUGUI>("TotalSpawnNumText").text = $"Spawn Monster : {GameManager.Instance.MonsterCount} / {GameManager.Instance.ChallengeStage * 8}";
+        GetUI<TextMeshProUGUI>("KillCountText").text = $"KillCount : {GameManager.Instance.MonsterCount} / {GameManager.Instance.ChallengeStage * 8}";
+        GetUI<TextMeshProUGUI>("CurLifeText").text = $"Life : {GameManager.Instance.CurLife} / 5";
     }
 
     public void OnClearPanel()

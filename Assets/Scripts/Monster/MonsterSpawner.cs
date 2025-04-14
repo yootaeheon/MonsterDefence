@@ -13,7 +13,7 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] GameObject _monster4;
 
     [HideInInspector] Transform _startPos;
-    private int TotalSpawnNum;
+    public int TotalSpawnNum;
 
     GameObject[] Monsters = new GameObject[4];
 

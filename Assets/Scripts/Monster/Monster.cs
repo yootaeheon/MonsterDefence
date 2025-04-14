@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public class Monster : MonoBehaviour
@@ -50,5 +51,9 @@ public class Monster : MonoBehaviour
         // 추후 리턴풀/파괴로 수정
         Destroy(gameObject);
         GameManager.Instance.CurLife--;
+        if (GameManager.Instance.CurLife == 0)
+        {
+            GameManager.Instance.OnStageGameOver?.Invoke();
+        }
     }
 }
