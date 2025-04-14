@@ -37,6 +37,8 @@ public class StateAttack : CharacterState
                 return;
             }
 
+            FlipToTarget(cols.transform.position);
+
             if (attackRoutine == null)
             {
                 attackRoutine = Controller.StartCoroutine(AttackRoutine());
@@ -72,4 +74,12 @@ public class StateAttack : CharacterState
         attackRoutine = null;
     }
 
+    private void FlipToTarget(Vector3 targetPosition)
+    {
+        float dirX = targetPosition.x - Controller.transform.position.x;
+        if (dirX > 0)
+            Controller.Flip(false);  // ← 방향
+        else
+            Controller.Flip(true); // → 방향
+    }
 }

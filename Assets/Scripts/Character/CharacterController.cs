@@ -59,4 +59,11 @@ public class CharacterController : MonoBehaviour
 
         Gizmos.DrawWireCube(boxPosition, boxSize);
     }
+
+    public void Flip(bool isRight)
+    {
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * (isRight ? 1 : -1);
+        transform.localScale = scale;
+    }
 }
