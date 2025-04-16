@@ -103,24 +103,23 @@ public class GameManager : UIBInder
     public void Clear()
     {
         clearRoutine = StartCoroutine(ClearRoutine());
-       /* ClearStage(ChallengeStage);*/
     }
 
     WaitForSeconds waitContinue = new(2.5f);
+
     Coroutine clearRoutine;
     IEnumerator ClearRoutine()
     {
         GameObject resultCanvas = GameObject.Find("ResultCanvas");
         ResultCanvas r = resultCanvas.GetComponent<ResultCanvas>();
 
-
         yield return waitContinue;
         r.OnClearPanel();
         yield return waitContinue;
         r.OffClearPanel();
+
         ClearStage(ChallengeStage);
     }
-
 
     public void GameOver()
     {
